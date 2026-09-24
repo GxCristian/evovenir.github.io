@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvoVenir - Per un Futuro Più Pulito e Sostenibile</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome per le icone -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        tealBrand: {
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-hero {
+            background: linear-gradient(135deg, rgba(20, 83, 45, 0.92) 0%, rgba(13, 148, 136, 0.85) 100%), 
+                        url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-600 to-tealBrand-500 flex items-center justify-center text-white shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform duration-300">
+                        <i class="fa-solid fa-leaf text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold tracking-tight text-slate-900 group-hover:text-brand-600 transition-colors">Evo<span class="text-brand-600">Venir</span></span>
+                        <span class="block text-xs font-semibold text-slate-400 tracking-wider uppercase">Progetto Scolastico Eco</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-8 font-medium text-slate-600 text-sm">
+                    <a href="#chi-siamo" class="hover:text-brand-600 transition-colors">Chi Siamo</a>
+                    <a href="#missione" class="hover:text-brand-600 transition-colors">La Missione</a>
+                    <a href="#servizi" class="hover:text-brand-600 transition-colors">Iniziative</a>
+                    <a href="#segnala" class="hover:text-brand-600 transition-colors">Segnala Rifiuti</a>
+                    <a href="#statistiche" class="hover:text-brand-600 transition-colors">Impatto</a>
+                    <a href="#hosting" class="hover:text-brand-600 transition-colors">Dominio Gratis</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex items-center">
+                    <a href="#segnala" class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-2">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Segnala Ora
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuBtn" class="md:hidden text-slate-700 p-2 rounded-lg hover:bg-slate-100 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#chi-siamo" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Chi Siamo</a>
+            <a href="#missione" class="block py-2 text-slate-700 font-medium hover:text-brand-600">La Missione</a>
+            <a href="#servizi" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Iniziative</a>
+            <a href="#segnala" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Segnala Rifiuti</a>
+            <a href="#statistiche" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Impatto</a>
+            <a href="#hosting" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Dominio Gratis</a>
+            <a href="#segnala" class="w-full text-center block py-3 rounded-xl bg-brand-600 text-white font-semibold shadow-md">
+                <i class="fa-solid fa-location-dot mr-2"></i> Segnala Rifiuti
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative gradient-hero text-white min-h-[85vh] flex items-center justify-center py-20 px-4">
+        <div class="max-w-5xl mx-auto text-center space-y-8">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-brand-100 text-sm font-medium">
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-500 animate-pulse"></span>
+                Azienda Scolastica Eco-Innovativa
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight">
+                Per un futuro più <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-emerald-200">pulito, sano e sostenibile</span>.
+            </h1>
+            
+            <p class="text-lg sm:text-xl text-slate-200 max-w-3xl mx-auto font-light leading-relaxed">
+                Fondata dagli studenti insieme alla nostra professoressa, <strong class="font-semibold text-white">EvoVenir</strong> combatte l'abbandono dei rifiuti e l'inquinamento, promuovendo il decoro urbano ed un’igiene ambientale responsabile.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="#segnala" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-bold text-lg shadow-lg hover:shadow-brand-500/40 transition-all duration-300 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Segnala Rifiuti
+                </a>
+                <a href="#chi-siamo" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-users"></i>
+                    Scopri il Progetto
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-12 text-left max-w-4xl mx-auto">
+                <div class="p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
+                    <div class="text-brand-300 font-bold text-2xl mb-1"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="text-sm font-semibold">Igiene Urbana</div>
+                    <div class="text-xs text-slate-300">Spazi puliti e sani</div>
+                </div>
+                <div class="p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
+                    <div class="text-brand-300 font-bold text-2xl mb-1"><i class="fa-solid fa-recycle"></i></div>
+                    <div class="text-sm font-semibold">Riciclo Attivo</div>
+                    <div class="text-xs text-slate-300">Valorizzazione risorse</div>
+                </div>
+                <div class="p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
+                    <div class="text-brand-300 font-bold text-2xl mb-1"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    <div class="text-sm font-semibold">Educazione</div>
+                    <div class="text-xs text-slate-300">Sensibilizzazione scuola</div>
+                </div>
+                <div class="p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
+                    <div class="text-brand-300 font-bold text-2xl mb-1"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <div class="text-sm font-semibold">Mappatura</div>
+                    <div class="text-xs text-slate-300">Monitoraggio territorio</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chi Siamo & La Storia -->
+    <section id="chi-siamo" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="inline-block px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-bold uppercase tracking-wider">
+                        Chi Siamo
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                        Un'idea nata fra i banchi di scuola per cambiare il nostro futuro.
+                    </h2>
+                    <p class="text-slate-600 text-lg leading-relaxed">
+                        <strong>EvoVenir</strong> nasce dall'unione della passione degli studenti della nostra classe e dalla guida ispiratrice della nostra professoressa. Ci siamo chiesti: <em>"Come possiamo fermare il degrado e l'abbandono dei rifiuti nella nostra città?"</em>
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">
+                        Da questo interrogativo è nata una vera e propria simulazione aziendale ad alto impatto sociale ed ecologico. Non ci limitiamo alla teoria: monitoriamo il territorio, organizziamo giornate di igiene ambientale, educhiati i nostri coetanei e collaboriamo con i cittadini per restituire decoro ai nostri spazi pubblici.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                            <i class="fa-solid fa-graduation-cap text-2xl text-brand-600 mb-2"></i>
+                            <h4 class="font-bold text-slate-900">Studenti & Prof</h4>
+                            <p class="text-xs text-slate-500">Uniti per la salvaguardia del pianeta</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                            <i class="fa-solid fa-hands-holding-circle text-2xl text-tealBrand-600 mb-2"></i>
+                            <h4 class="font-bold text-slate-900">Comunità Unita</h4>
+                            <p class="text-xs text-slate-500">Coinvolgimento attivo di tutti i cittadini</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=1000&auto=format&fit=crop" alt="Volontari pulizia ambiente" class="w-full h-[450px] object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-white">
+                            <span class="px-3 py-1 bg-brand-500 text-xs font-bold rounded-md uppercase">Lavoro di Squadra</span>
+                            <h3 class="text-xl font-bold mt-2">Insieme per l'Igiene Ambientale</h3>
+                            <p class="text-xs text-slate-200">Ogni rifiuto raccolto è un passo verso la sostenibilità.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Iniziative / Servizi -->
+    <section id="servizi" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="px-3 py-1 rounded-full bg-brand-100 text-brand-800 text-xs font-bold uppercase tracking-wider">Iniziative EvoVenir</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Le azioni concrete della nostra azienda</h2>
+                <p class="text-slate-600 mt-4">Rispondiamo alle sfide ambientali locali con soluzioni innovative e partecipazione attiva.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group">
+                    <div class="w-14 h-14 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-dumpster"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Monitoraggio Rifiuti</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Mappatura costante delle aree urbane ed extraurbane colpite da sversamenti abusivi ed illegali di rifiuti.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group">
+                    <div class="w-14 h-14 rounded-xl bg-teal-100 text-tealBrand-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-tealBrand-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-broom"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Giornate di Pulizia</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Organizzazione di eventi comunitari di bonifica per parchi, spiagge, corsi d'acqua e quartieri abbandonati.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group">
+                    <div class="w-14 h-14 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Workshop Scolastici</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Laboratori di sensibilizzazione rivolti ad altri studenti su raccolta differenziata, riciclo e riduzione plastica.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group">
+                    <div class="w-14 h-14 rounded-xl bg-green-100 text-green-700 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-green-700 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Igiene & Sanificazione</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Promozione di buone pratiche igieniche per la salute pubblica e la conservazione degli ecosistemi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Tool: Segnala Rifiuti -->
+    <section id="segnala" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-bold uppercase tracking-wider">Partecipa Anche Tu</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Strumento di Segnalazione Rifiuti</h2>
+                <p class="text-slate-600 mt-2">Hai notato rifiuti abbandonati nella tua zona? Compila il modulo sotto per inserire la segnalazione nella dashboard di EvoVenir.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Form Formulario -->
+                <div class="lg:col-span-5 bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-plus text-brand-600"></i>
+                        Nuova Segnalazione
+                    </h3>
+
+                    <form id="wasteForm" onsubmit="handleReportSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Luogo / Indirizzo</label>
+                            <div class="relative">
+                                <i class="fa-solid fa-location-dot absolute left-4 top-3.5 text-slate-400"></i>
+                                <input type="text" id="reportLocation" required placeholder="Es. Parco Comunale, Via Roma 42" class="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Tipologia Rifiuto</label>
+                            <select id="reportType" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm bg-white">
+                                <option value="Plastica e Metalli">Plastica / Metalli</option>
+                                <option value="Vetro">Vetro / Bottiglie</option>
+                                <option value="Ingombranti (Mobili, Elettrodomestici)">Ingombranti (Mobili/RAEE)</option>
+                                <option value="Rifiuti Pericolosi / Tossici">Rifiuti Pericolosi / Vernici</option>
+                                <option value="Secco Indifferenziato">Misto / Indifferenziato</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Gravità / Dimensione</label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <label class="border border-slate-300 rounded-xl p-2.5 text-center cursor-pointer text-xs font-semibold hover:border-brand-500 has-[:checked]:bg-brand-50 has-[:checked]:border-brand-600">
+                                    <input type="radio" name="severity" value="Bassa" class="sr-only" checked> Piccola
+                                </label>
+                                <label class="border border-slate-300 rounded-xl p-2.5 text-center cursor-pointer text-xs font-semibold hover:border-brand-500 has-[:checked]:bg-brand-50 has-[:checked]:border-brand-600">
+                                    <input type="radio" name="severity" value="Media" class="sr-only"> Media
+                                </label>
+                                <label class="border border-slate-300 rounded-xl p-2.5 text-center cursor-pointer text-xs font-semibold hover:border-brand-500 has-[:checked]:bg-brand-50 has-[:checked]:border-brand-600">
+                                    <input type="radio" name="severity" value="Alta" class="sr-only"> Critica
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Descrizione Dettagliata</label>
+                            <textarea id="reportDesc" rows="3" placeholder="Aggiungi indicazioni utili per i volontari..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-lg hover:shadow-brand-600/30 transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Invia Segnalazione
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Live Dashboard degli interventi -->
+                <div class="lg:col-span-7 bg-slate-900 text-white p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col justify-between min-h-[480px]">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+                            <div>
+                                <h3 class="text-xl font-bold flex items-center gap-2">
+                                    <i class="fa-solid fa-list-check text-brand-500"></i>
+                                    Dashboard Mappatura Rifiuti
+                                </h3>
+                                <p class="text-xs text-slate-400 mt-1">Stato in tempo reale delle segnalazioni e bonifiche</p>
+                            </div>
+                            <span class="px-3 py-1 bg-brand-500/20 text-brand-400 border border-brand-500/30 text-xs rounded-full font-mono">LIVE</span>
+                        </div>
+
+                        <div id="reportsContainer" class="space-y-3 max-h-[340px] overflow-y-auto pr-2">
+                            <!-- Inseriti da JS -->
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                        <span>Sincronizzato con la squadra studenti EvoVenir</span>
+                        <span id="reportCountBadge" class="font-bold text-white">3 Segnalazioni Attive</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistiche d'Impatto -->
+    <section id="statistiche" class="py-16 bg-gradient-to-br from-brand-900 via-slate-900 to-tealBrand-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                    <i class="fa-solid fa-weight-hanging text-3xl text-brand-400 mb-2"></i>
+                    <div class="text-4xl font-extrabold text-white font-mono">1.250+</div>
+                    <div class="text-sm text-slate-300 mt-1 font-medium">Kg Rifiuti Raggruppati</div>
+                </div>
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                    <i class="fa-solid fa-hands-cleaning text-3xl text-tealBrand-500 mb-2"></i>
+                    <div class="text-4xl font-extrabold text-white font-mono">18</div>
+                    <div class="text-sm text-slate-300 mt-1 font-medium">Aree Bonificate</div>
+                </div>
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                    <i class="fa-solid fa-user-graduate text-3xl text-emerald-400 mb-2"></i>
+                    <div class="text-4xl font-extrabold text-white font-mono">25</div>
+                    <div class="text-sm text-slate-300 mt-1 font-medium">Studenti Coinvolti</div>
+                </div>
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                    <i class="fa-solid fa-heart-pulse text-3xl text-rose-400 mb-2"></i>
+                    <div class="text-4xl font-extrabold text-white font-mono">100%</div>
+                    <div class="text-sm text-slate-300 mt-1 font-medium">Impegno Ecologico</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Guida Hosting Gratuito "evovenir" -->
+    <section id="hosting" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider">Guida Pubblicazione</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Come mettere online "EvoVenir" GRATIS</h2>
+                <p class="text-slate-600 mt-2">
+                    Non serve pagare un dominio o un server! Ecco i 3 metodi gratuiti per pubblicare questo sito web con un indirizzo tipo <code class="bg-slate-200 px-2 py-0.5 rounded text-brand-700 font-semibold">evovenir.github.io</code> o <code class="bg-slate-200 px-2 py-0.5 rounded text-brand-700 font-semibold">evovenir.netlify.app</code>.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Opzione 1: GitHub Pages -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">1. GitHub Pages</h3>
+                        <p class="text-xs text-brand-600 font-semibold mb-4">Indirizzo: evovenir.github.io</p>
+                        <ol class="text-sm text-slate-600 space-y-2 list-decimal list-inside leading-relaxed">
+                            <li>Crea un account gratuito su <strong>GitHub.com</strong>.</li>
+                            <li>Crea un repository pubblico dal nome <code class="bg-slate-100 px-1">evovenir.github.io</code>.</li>
+                            <li>Carica questo file rinominandolo <code class="bg-slate-100 px-1">index.html</code>.</li>
+                            <li>Attiva le "Pages" nelle Impostazioni: il sito sarà subito online!</li>
+                        </ol>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100">
+                        <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2.5 py-1 rounded-full">Consigliato per la scuola</span>
+                    </div>
+                </div>
+
+                <!-- Opzione 2: Netlify -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-teal-500 text-white flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">2. Netlify</h3>
+                        <p class="text-xs text-teal-600 font-semibold mb-4">Indirizzo: evovenir.netlify.app</p>
+                        <ol class="text-sm text-slate-600 space-y-2 list-decimal list-inside leading-relaxed">
+                            <li>Crea un account su <strong>Netlify.com</strong>.</li>
+                            <li>Trascina la cartella contenente questo file nella sezione <em>"Sites Drop"</em>.</li>
+                            <li>Nelle impostazioni del sito (Site Settings), personalizza il nome in <code class="bg-slate-100 px-1">evovenir</code>.</li>
+                        </ol>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100">
+                        <span class="text-xs bg-blue-100 text-blue-800 font-bold px-2.5 py-1 rounded-full">Attivazione velocissima ( Drag & Drop )</span>
+                    </div>
+                </div>
+
+                <!-- Opzione 3: Vercel -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-triangle-circle-square"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">3. Vercel</h3>
+                        <p class="text-xs text-slate-800 font-semibold mb-4">Indirizzo: evovenir.vercel.app</p>
+                        <ol class="text-sm text-slate-600 space-y-2 list-decimal list-inside leading-relaxed">
+                            <li>Registrati su <strong>Vercel.com</strong> tramite GitHub.</li>
+                            <li>Importa il progetto e assegna il sotto-dominio <code class="bg-slate-100 px-1">evovenir</code>.</li>
+                            <li>Vercel fornirà un certificato SSL HTTPS automatico e veloce.</li>
+                        </ol>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100">
+                        <span class="text-xs bg-purple-100 text-purple-800 font-bold px-2.5 py-1 rounded-full">Alte prestazioni</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contatti" class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-3 text-white font-bold text-xl mb-4">
+                        <i class="fa-solid fa-leaf text-brand-500"></i> EvoVenir
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Azienda scolastica no-profit per la tutela dell'ambiente, l'igiene urbana e la bonifica dei rifiuti abbandonati.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Link Rapidi</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#chi-siamo" class="hover:text-white transition-colors">Chi Siamo</a></li>
+                        <li><a href="#servizi" class="hover:text-white transition-colors">Servizi e Iniziative</a></li>
+                        <li><a href="#segnala" class="hover:text-white transition-colors">Mappa Segnalazioni</a></li>
+                        <li><a href="#hosting" class="hover:text-white transition-colors">Guida Hosting Dominio</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contatti Progetto Scolastico</h4>
+                    <p class="text-sm mb-1"><i class="fa-solid fa-envelope mr-2 text-brand-500"></i> info@evovenir-scuola.it</p>
+                    <p class="text-sm mb-1"><i class="fa-solid fa-school mr-2 text-brand-500"></i> Istituto Scolastico - Classe Partecipante</p>
+                    <p class="text-sm"><i class="fa-solid fa-chalkboard-user mr-2 text-brand-500"></i> Coordinatrice: Prof.ssa e gli Studenti</p>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+                &copy; <span id="year"></span> EvoVenir - Realizzato con passione dalla classe e dalla professoressa. Tutti i diritti riservati.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Toggle Mobile Menu
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Mock Initial Reports Data
+        let reports = [
+            { id: 1, location: "Parco dei Pini - Zona Nord", type: "Plastica e Bottiglie", status: "In Attesa di Bonifica", time: "2 ore fa", severity: "Bassa" },
+            { id: 2, location: "Via delle Fonderie (Retro Stazione)", type: "Ingombranti (Mobili)", status: "Intervento Programmato", time: "Ieri", severity: "Media" },
+            { id: 3, location: "Boschetto Comunale", type: "Rifiuti Pericolosi / Vernici", status: "In Lavorazione", time: "2 giorni fa", severity: "Alta" }
+        ];
+
+        function renderReports() {
+            const container = document.getElementById('reportsContainer');
+            const badge = document.getElementById('reportCountBadge');
+            
+            badge.textContent = `${reports.length} Segnalazioni Registrate`;
+            container.innerHTML = '';
+
+            reports.forEach(item => {
+                let statusBg = 'bg-amber-500/20 text-amber-300 border-amber-500/30';
+                if(item.status === 'Pulito / Risolto') statusBg = 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30';
+                if(item.status === 'In Lavorazione') statusBg = 'bg-blue-500/20 text-blue-300 border-blue-500/30';
+
+                let badgeSeverity = 'bg-slate-700 text-slate-300';
+                if(item.severity === 'Alta') badgeSeverity = 'bg-red-500/20 text-red-300';
+
+                const card = document.createElement('div');
+                card.className = "p-4 rounded-xl bg-slate-800/80 border border-slate-700 hover:border-slate-600 transition-all";
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-bold text-sm text-white flex items-center gap-2">
+                            <i class="fa-solid fa-map-pin text-brand-400"></i>
+                            ${item.location}
+                        </h4>
+                        <span class="text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full border ${statusBg}">
+                            ${item.status}
+                        </span>
+                    </div>
+                    <div class="text-xs text-slate-300 flex flex-wrap gap-x-4 gap-y-1 mb-2">
+                        <span><strong>Tipo:</strong> ${item.type}</span>
+                        <span class="px-1.5 py-0.5 rounded ${badgeSeverity}">Priorità: ${item.severity}</span>
+                    </div>
+                    <div class="text-[11px] text-slate-500 flex justify-between items-center">
+                        <span>Segnalato ${item.time}</span>
+                        <button onclick="markResolved(${item.id})" class="text-brand-400 hover:text-brand-300 underline font-medium">Segnala come Pulito</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function handleReportSubmit(e) {
+            e.preventDefault();
+            const location = document.getElementById('reportLocation').value;
+            const type = document.getElementById('reportType').value;
+            const severity = document.querySelector('input[name="severity"]:checked').value;
+
+            const newReport = {
+                id: Date.now(),
+                location: location,
+                type: type,
+                status: "In Attesa di Bonifica",
+                time: "Proprio ora",
+                severity: severity
+            };
+
+            reports.unshift(newReport);
+            renderReports();
+
+            // Reset form
+            document.getElementById('wasteForm').reset();
+
+            // Confirmation message feedback
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-5 right-5 bg-brand-600 text-white px-6 py-4 rounded-2xl shadow-2xl z-50 flex items-center gap-3 animate-bounce';
+            toast.innerHTML = '<i class="fa-solid fa-circle-check text-xl"></i> <div><strong>Segnalazione Inviata!</strong><br><span class="text-xs">Grazie per aiutare EvoVenir ad igienizzare l\'ambiente.</span></div>';
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.remove();
+            }, 4000);
+        }
+
+        function markResolved(id) {
+            reports = reports.map(r => {
+                if(r.id === id) {
+                    return { ...r, status: "Pulito / Risolto" };
+                }
+                return r;
+            });
+            renderReports();
+        }
+
+        // Initialize dashboard on load
+        window.onload = function() {
+            renderReports();
+        };
+    </script>
+</body>
+</html>
